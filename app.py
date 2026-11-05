@@ -26,7 +26,7 @@ from PIL import Image
 # ==============================================================================
 st.set_page_config(
     page_title="NeumoScan AI | Tamizaje de neumonía",
-    page_icon="🫁",
+    page_icon="⚕️",
     layout="wide",
 )
 
@@ -176,7 +176,7 @@ TEST_REF = ev["metricas_prueba"][CLAVE_REF]
 st.markdown(f"""
 <div style="background: linear-gradient(90deg,{MARINO},{AZUL});
             padding:25px; border-radius:12px; color:white; text-align:center;">
-  <h1 style="color:white; margin-bottom:0; font-size:2.8rem;">🫁 NeumoScan AI</h1>
+  <h1 style="color:white; margin-bottom:0; font-size:2.8rem;">⚕️ NeumoScan AI</h1>
   <h3 style="color:white; margin-top:4px;">Tamizaje de neumonía en radiografías de tórax pediátricas
       con redes neuronales convolucionales</h3>
   <p style="font-size:1.05rem; margin-bottom:0; line-height:1.6;">
@@ -190,7 +190,7 @@ st.markdown(f"""
 
 st.write("")
 st.markdown(
-    '<div class="aviso">🩻 <b>Herramienta académica de tamizaje.</b> Estima la probabilidad de neumonía '
+    '<div class="aviso">📋 <b>Herramienta académica de tamizaje.</b> Estima la probabilidad de neumonía '
     'en radiografías de tórax frontales de niños de 1 a 5 años, para priorizar la revisión médica. '
     '<b>No reemplaza el diagnóstico de un profesional de la salud.</b></div>',
     unsafe_allow_html=True,
