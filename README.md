@@ -9,7 +9,8 @@
 ## Enlaces
 
 - Notebook (Google Colab): https://colab.research.google.com/drive/1hxoqbGEsOEeYZuXEvzU_OFGRBXrHKljj?usp=sharing
-- Aplicación (Streamlit Community Cloud): se completa al publicar
+- Aplicación (Streamlit Community Cloud): https://neumoscan-ai-ctap.streamlit.app
+- Repositorio (GitHub): https://github.com/claudiaaranguren/neumoscan-ai
 - Video de sustentación: se completa al publicar
 
 ## Qué hace
@@ -31,6 +32,7 @@ Herramienta académica de tamizaje: no reemplaza el diagnóstico médico.
 | `modelo_neumonia.keras` | Red neuronal entrenada (incluye el preprocesamiento) |
 | `metricas_cnn.json` | Métricas, umbral, curvas de aprendizaje, ROC y particiones |
 | `gradcam_ejemplos.png` | Figura de interpretabilidad (Grad-CAM) |
+| `radiografias.db` | Base de datos SQLite: inventario, pacientes y partición de cada radiografía |
 | `ejemplos/` | Radiografías de prueba para usar la app |
 
 ## Ejecutar en local
