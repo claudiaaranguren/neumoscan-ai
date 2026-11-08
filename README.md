@@ -11,7 +11,8 @@
 - Notebook (Google Colab): https://colab.research.google.com/drive/1hxoqbGEsOEeYZuXEvzU_OFGRBXrHKljj?usp=sharing
 - Aplicación (Streamlit Community Cloud): https://neumoscan-ai-ctap.streamlit.app
 - Repositorio (GitHub): https://github.com/claudiaaranguren/neumoscan-ai
-- Video de sustentación: se completa al publicar
+- Video de sustentación (YouTube): https://youtu.be/UN7y_VpBnbs
+- Póster (PDF): Poster_ACA2_NeumoScan.pdf en este repositorio
 
 ## Qué hace
 
@@ -34,6 +35,8 @@ Herramienta académica de tamizaje: no reemplaza el diagnóstico médico.
 | `gradcam_ejemplos.png` | Figura de interpretabilidad (Grad-CAM) |
 | `radiografias.db` | Base de datos SQLite: inventario, pacientes y partición de cada radiografía |
 | `ejemplos/` | Radiografías de prueba para usar la app |
+| `.streamlit/config.toml` | Tema de colores de la app |
+| `Poster_ACA2_NeumoScan.pdf` | Póster tipo infografía |
 
 ## Ejecutar en local
 
@@ -43,10 +46,13 @@ streamlit run app.py
 ```
 
 En Streamlit Community Cloud se usa Python 3.12 (Advanced settings), compatible con TensorFlow.
+Reproducibilidad: TensorFlow 2.21 · semilla 42 · partición por paciente guardada en `radiografias.db`.
 
 ## Referencias
 
-Kermany, D. S., Goldbaum, M., Cai, W., Valentim, C. C. S., Liang, H., Baxter, S. L., ... Zhang, K. (2018).
+Kermany, D. S., Goldbaum, M., Cai, W., Valentim, C. C. S., Liang, H., Baxter, S. L., McKeown, A., Yang, G.,
+Wu, X., Yan, F., Dong, J., Prasadha, M. K., Pei, J., Ting, M. Y. L., Zhu, J., Li, C., Hewett, S., Dong, J.,
+Ziyar, I., . . . Zhang, K. (2018).
 Identifying medical diagnoses and treatable diseases by image-based deep learning. *Cell, 172*(5),
 1122–1131. https://doi.org/10.1016/j.cell.2018.02.010
 
@@ -56,3 +62,7 @@ https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C. (2018). MobileNetV2: Inverted residuals
 and linear bottlenecks. En *Proceedings of the IEEE Conference on Computer Vision and Pattern
 Recognition* (pp. 4510–4520). https://doi.org/10.1109/CVPR.2018.00474
+
+Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, D. (2017). Grad-CAM: Visual
+explanations from deep networks via gradient-based localization. En *Proceedings of the IEEE International
+Conference on Computer Vision* (pp. 618–626). https://doi.org/10.1109/ICCV.2017.74

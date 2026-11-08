@@ -36,8 +36,8 @@ st.set_page_config(
 ENLACES = {
     "📓 Notebook (Google Colab)": "https://colab.research.google.com/drive/1hxoqbGEsOEeYZuXEvzU_OFGRBXrHKljj?usp=sharing",
     "💻 Repositorio (GitHub)": "https://github.com/claudiaaranguren/neumoscan-ai",
-    "🎥 Video de sustentación": "",
-    "📄 Póster (infografía PDF)": "",
+    "🎥 Video de sustentación": "https://youtu.be/UN7y_VpBnbs",
+    "📄 Póster (infografía PDF)": "https://github.com/claudiaaranguren/neumoscan-ai/blob/main/Poster_ACA2_NeumoScan.pdf",
 }
 
 ARCHIVO_MODELO = "modelo_neumonia.keras"
@@ -91,7 +91,8 @@ header[data-testid="stHeader"] {{ background: transparent; }}
           color: #BFF3FF; }}
 .hero h1 {{ color: #FFFFFF !important; font-size: 4.2rem; font-weight: 900; margin: 0; padding: 0;
            line-height: 1.05; letter-spacing: -0.01em; text-shadow: 0 6px 24px rgba(0, 20, 80, 0.35); }}
-.hero h1 span {{ color: #7CE7FF; }}
+.hero h1 .ai {{ color: #7CE7FF; }}
+.hero h1 > span:not(.ai) {{ color: #FFFFFF; }}
 .hero .sub {{ font-size: 1.5rem; font-weight: 700; margin: 2px 0 0; color: #EAF2FF; }}
 .hero .raya {{ width: 120px; height: 5px; border-radius: 5px; margin: 10px auto 0;
               background: linear-gradient(90deg, #7CE7FF, #FFFFFF); }}
@@ -270,7 +271,7 @@ st.markdown(f"""
     <div class="logo">{ICONO_PULMONES}</div>
     <div>
       <div class="kicker">Proyecto ACA 2 · Redes neuronales convolucionales</div>
-      <h1>NeumoScan <span>AI</span></h1>
+      <h1>NeumoScan <span class="ai">AI</span></h1>
       <p class="sub">Tamizaje de neumonía en radiografías de tórax pediátricas</p>
       <div class="raya"></div>
     </div>
@@ -458,10 +459,10 @@ with st.container(key="tarjeta_desempeno"):
             ax.grid(alpha=0.3)
             ax.legend()
         imagen_figura(fig, 980)
-        st.markdown("Las curvas de entrenamiento y validación avanzan juntas: el modelo **generaliza** y no "
-                    "memoriza. El entrenamiento se detuvo solo (*early stopping*) cuando el AUC de validación "
-                    "dejó de mejorar. Un *fine-tuning* adicional se probó y se descartó porque produjo "
-                    "sobreajuste.")
+        st.markdown("La pérdida de validación baja hasta la época 7 y luego oscila: señal de que seguir entrenando "
+                    "empezaba a sobreajustar. Por eso el *early stopping* (AUC de validación) guardó el mejor "
+                    "modelo, el de la **época 13**. Un *fine-tuning* adicional se probó y se descartó porque "
+                    "produjo sobreajuste.")
 
     with tab_matriz:
         (vn, fp_m), (fn_m, vp) = ev["matriz_confusion"]
@@ -526,11 +527,13 @@ umbral elegido en validación → evaluación única en prueba → Grad-CAM.
 aprendizaje por atajos detectado con Grad-CAM y sin detección de imágenes ajenas al dominio.
 Herramienta académica: no reemplaza el criterio médico.
 
-**TensorFlow del modelo:** {ev['version_tensorflow']}.
+**Reproducibilidad:** Python 3.12 · TensorFlow {ev['version_tensorflow']} · semilla 42 · partición por paciente guardada en SQLite (`radiografias.db`) · modelo `.keras` con el preprocesamiento incluido · código completo en GitHub.
 
 **Referencias (APA 7)**
 
-Kermany, D. S., Goldbaum, M., Cai, W., Valentim, C. C. S., Liang, H., Baxter, S. L., ... Zhang, K. (2018).
+Kermany, D. S., Goldbaum, M., Cai, W., Valentim, C. C. S., Liang, H., Baxter, S. L., McKeown, A., Yang, G.,
+Wu, X., Yan, F., Dong, J., Prasadha, M. K., Pei, J., Ting, M. Y. L., Zhu, J., Li, C., Hewett, S., Dong, J.,
+Ziyar, I., . . . Zhang, K. (2018).
 Identifying medical diagnoses and treatable diseases by image-based deep learning. *Cell, 172*(5),
 1122–1131. https://doi.org/10.1016/j.cell.2018.02.010
 
@@ -539,8 +542,12 @@ https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 
 Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C. (2018). MobileNetV2: Inverted residuals
 and linear bottlenecks. En *Proceedings of the IEEE Conference on Computer Vision and Pattern
-Recognition* (pp. 4510–4520).
+Recognition* (pp. 4510–4520). https://doi.org/10.1109/CVPR.2018.00474
+
+Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, D. (2017). Grad-CAM: Visual
+explanations from deep networks via gradient-based localization. En *Proceedings of the IEEE International
+Conference on Computer Vision* (pp. 618–626). https://doi.org/10.1109/ICCV.2017.74
 """)
 
-st.markdown('<div class="pie">NeumoScan AI · Claudia Teresa Aranguren Peña · Aprendizaje Automático · CUN 2026</div>',
+st.markdown('<div class="pie">NeumoScan AI · Claudia Teresa Aranguren Peña · Aprendizaje Automático · CUN · Noviembre de 2026</div>',
             unsafe_allow_html=True)
