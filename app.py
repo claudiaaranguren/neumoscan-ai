@@ -54,7 +54,7 @@ COLOR_NORMAL, COLOR_NEUMONIA = AZUL, CORAL
 
 # Pulmones dibujados en SVG (se ven igual en cualquier sistema operativo, sin emojis)
 ICONO_PULMONES = """
-<svg viewBox="0 0 64 64" width="58" height="58" fill="none" stroke="white" stroke-width="3.2"
+<svg viewBox="0 0 64 64" width="66" height="66" fill="none" stroke="white" stroke-width="3.2"
      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
   <path d="M32 8v20"/><path d="M32 28c-3 0-6 3-8 6"/><path d="M32 28c3 0 6 3 8 6"/>
   <path d="M24 18c-8 2-14 14-14 28 0 6 3 9 8 9 5 0 8-3 8-9V22"/>
@@ -81,25 +81,29 @@ header[data-testid="stHeader"] {{ background: transparent; }}
 .hero::before, .hero::after {{ content: ""; position: absolute; border-radius: 50%;
         border: 2px solid rgba(255,255,255,0.16); }}
 .hero::before {{ width: 420px; height: 420px; right: -120px; top: -190px; }}
-.hero::after  {{ width: 260px; height: 260px; right: 90px; top: -150px; }}
-.hero-top {{ display: flex; align-items: center; gap: 20px; position: relative; }}
-.logo {{ width: 86px; height: 86px; border-radius: 22px; background: rgba(255,255,255,0.16);
+.hero::after  {{ width: 360px; height: 360px; left: -140px; bottom: -220px; }}
+.hero-top {{ display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+             position: relative; }}
+.logo {{ width: 104px; height: 104px; border-radius: 28px; box-shadow: 0 0 0 8px rgba(255,255,255,0.08), 0 10px 26px rgba(0,0,0,0.18); background: rgba(255,255,255,0.16);
         border: 2px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center;
         flex-shrink: 0; }}
-.kicker {{ font-size: 0.85rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+.kicker {{ font-size: 0.95rem; font-weight: 800; letter-spacing: 0.22em; margin-top: 6px; text-transform: uppercase;
           color: #BFF3FF; }}
-.hero h1 {{ color: #FFFFFF !important; font-size: 3.1rem; font-weight: 900; margin: 0; padding: 0;
-           line-height: 1.1; }}
-.hero .sub {{ font-size: 1.25rem; font-weight: 600; margin: 4px 0 0; color: #EAF2FF; }}
-.chips {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; position: relative; }}
+.hero h1 {{ color: #FFFFFF !important; font-size: 4.2rem; font-weight: 900; margin: 0; padding: 0;
+           line-height: 1.05; letter-spacing: -0.01em; text-shadow: 0 6px 24px rgba(0, 20, 80, 0.35); }}
+.hero h1 span {{ color: #7CE7FF; }}
+.hero .sub {{ font-size: 1.5rem; font-weight: 700; margin: 2px 0 0; color: #EAF2FF; }}
+.hero .raya {{ width: 120px; height: 5px; border-radius: 5px; margin: 10px auto 0;
+              background: linear-gradient(90deg, #7CE7FF, #FFFFFF); }}
+.chips {{ display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; position: relative; }}
 .chip {{ background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.35); border-radius: 999px;
         padding: 6px 14px; font-size: 0.92rem; }}
 .stats {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; position: relative; }}
-.stat {{ background: #FFFFFF; border-radius: 16px; padding: 12px 14px; color: {TINTA};
+.stat {{ background: #FFFFFF; border-radius: 16px; padding: 12px 14px; text-align: center; color: {TINTA};
         box-shadow: 0 6px 16px rgba(10, 31, 92, 0.18); }}
 .stat .n {{ font-size: 1.75rem; font-weight: 900; color: {AZUL}; line-height: 1.1; }}
 .stat .t {{ font-size: 0.85rem; font-weight: 700; color: {GRIS}; text-transform: uppercase; letter-spacing: 0.04em; }}
-@media (max-width: 900px) {{ .stats {{ grid-template-columns: repeat(2, 1fr); }} .hero h1 {{ font-size: 2.3rem; }} }}
+@media (max-width: 900px) {{ .stats {{ grid-template-columns: repeat(2, 1fr); }} .hero h1 {{ font-size: 2.6rem; }} }}
 
 /* Títulos de sección: número + texto + línea degradada */
 .sec {{ display: flex; align-items: center; gap: 14px; margin: 34px 0 14px; }}
@@ -266,8 +270,9 @@ st.markdown(f"""
     <div class="logo">{ICONO_PULMONES}</div>
     <div>
       <div class="kicker">Proyecto ACA 2 · Redes neuronales convolucionales</div>
-      <h1>NeumoScan AI</h1>
+      <h1>NeumoScan <span>AI</span></h1>
       <p class="sub">Tamizaje de neumonía en radiografías de tórax pediátricas</p>
+      <div class="raya"></div>
     </div>
   </div>
   <div class="chips">
